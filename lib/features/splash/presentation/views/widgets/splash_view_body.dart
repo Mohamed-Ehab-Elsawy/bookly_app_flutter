@@ -1,5 +1,7 @@
-import 'package:bookly_app/core/utils/assets.dart';
+import 'package:bookly_app/core/utils/bookly_assets.dart';
+import 'package:bookly_app/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -11,20 +13,13 @@ class SplashViewBody extends StatefulWidget {
 class _SplashViewBodyState extends State<SplashViewBody>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
-  late Animation<Offset> _offsetAnimation;
+  late Animation<Offset> _slidingAnimation;
 
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 1),
-    );
-    _offsetAnimation = Tween<Offset>(
-      begin: const Offset(0, 1),
-      end: Offset.zero,
-    ).animate(_animationController);
-    _animationController.forward();
+    _initSlidingAnimation();
+    _navigateToHomeView();
   }
 
   @override
@@ -36,8 +31,30 @@ class _SplashViewBodyState extends State<SplashViewBody>
   @override
   Widget build(BuildContext context) => Center(
     child: SlideTransition(
-      position: _offsetAnimation,
+      position: _slidingAnimation,
       child: Image.asset(BooklyAssets.logo),
     ),
   );
+
+  _initSlidingAnimation() {
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    );
+    _slidingAnimation = Tween<Offset>(
+      begin: const Offset(0, 1.5),
+      end: Offset.zero,
+    ).animate(_animationController);
+    _animationController.forward();
+  }
+
+  _navigateToHomeView() {
+    Future.delayed(const Duration(seconds: 2), () {
+      Get.off(
+        () => const HomeView(),
+        transition: Transition.fade,
+        duration: const Duration(milliseconds: 500),
+      );
+    });
+  }
 }
