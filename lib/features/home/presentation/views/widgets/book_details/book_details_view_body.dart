@@ -1,6 +1,5 @@
 import 'package:bookly_app/core/utils/bookly_styles.dart';
 import 'package:bookly_app/core/widgets/ratio_image.dart';
-import 'package:bookly_app/features/home/data/model/book_model.dart';
 import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_details/free_preview_card.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_details/price_card.dart';
