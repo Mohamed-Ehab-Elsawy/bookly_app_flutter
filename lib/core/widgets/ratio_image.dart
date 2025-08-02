@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class RatioImage extends StatelessWidget {
-  final double? height;
+  final double? height, width;
   final double aspectRatio;
   final String imageUrl;
   final EdgeInsets? margin;
@@ -9,6 +9,7 @@ class RatioImage extends StatelessWidget {
   const RatioImage({
     super.key,
     this.height,
+    this.width,
     this.margin,
     required this.aspectRatio,
     required this.imageUrl,
@@ -17,6 +18,7 @@ class RatioImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => SizedBox(
     height: height,
+    width: width,
     child: AspectRatio(
       aspectRatio: aspectRatio,
       child: Container(
@@ -25,7 +27,7 @@ class RatioImage extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           image: DecorationImage(
             fit: BoxFit.fill,
-            image: NetworkImage(imageUrl),
+            image: NetworkImage(imageUrl,),
           ),
         ),
       ),

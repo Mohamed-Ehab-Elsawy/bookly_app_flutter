@@ -1,9 +1,13 @@
 import 'package:bookly_app/core/utils/bookly_styles.dart';
 import 'package:bookly_app/core/utils/constants.dart';
+import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/book_rating_details.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerBookDetails extends StatelessWidget {
-  const BestSellerBookDetails({super.key});
+  final BookEntity book;
+
+  const BestSellerBookDetails({super.key, required this.book});
 
   @override
   Widget build(BuildContext context) => Column(
@@ -11,28 +15,23 @@ class BestSellerBookDetails extends StatelessWidget {
     mainAxisSize: MainAxisSize.min,
     children: [
       Text(
-        'Harry Potter and the Goblet of Fire',
+        book.title,
         style: BooklyStyles.text20.copyWith(fontFamily: kGTSectraFine),
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
       ),
       Text(
-        'Rudyard Kipling',
+        book.author,
         style: BooklyStyles.text14.copyWith(color: Colors.grey),
       ),
       Flexible(
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('19.99 \$', style: BooklyStyles.text20),
-            Spacer(),
-            Icon(Icons.star_rounded, color: kYellowColor),
-            const SizedBox(width: 5),
-            Text('4.8', style: BooklyStyles.text16),
-            const SizedBox(width: 5),
-            Text(
-              '(2390)',
-              style: BooklyStyles.text14.copyWith(color: Colors.grey),
+            Text('${book.price} €', style: BooklyStyles.text20),
+            const Spacer(),
+            BookRatingDetails(
+              rating: book.rating,
+              ratingCount: book.ratingCount,
             ),
           ],
         ),
