@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
+// COLORS
 const kPrimaryColor = Color(0xFF100B20);
 const kYellowColor = Color(0xFFFFDD4F);
+
+// FONTS ASSETS
 const kGTSectraFine = 'GTSectraFine';
-const kTestingNetworkImageURL =
-    'http://books.google.com/books/content?id=SSrHDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api';
+
+// IMAGES ASSETS
+const kImgPlaceholder = 'assets/images/img_placeholder.png';
+
+// HIVE BOXES
+const kBooksBox = 'books';
+const kNewestBooksBox = 'newest_books';

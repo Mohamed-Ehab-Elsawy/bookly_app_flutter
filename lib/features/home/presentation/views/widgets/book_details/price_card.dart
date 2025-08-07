@@ -2,7 +2,7 @@ import 'package:bookly_app/core/utils/bookly_styles.dart';
 import 'package:flutter/material.dart';
 
 class PriceCard extends StatelessWidget {
-  final double price;
+  final num price;
 
   const PriceCard({super.key, required this.price});
 

@@ -15,13 +15,13 @@ class BestSellerBookDetails extends StatelessWidget {
     mainAxisSize: MainAxisSize.min,
     children: [
       Text(
-        book.title,
+        book.title ?? "Title",
         style: BooklyStyles.text20.copyWith(fontFamily: kGTSectraFine),
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
       ),
       Text(
-        book.author,
+        book.author ?? "No Author",
         style: BooklyStyles.text14.copyWith(color: Colors.grey),
       ),
       Flexible(
@@ -30,8 +30,8 @@ class BestSellerBookDetails extends StatelessWidget {
             Text('${book.price} €', style: BooklyStyles.text20),
             const Spacer(),
             BookRatingDetails(
-              rating: book.rating,
-              ratingCount: book.ratingCount,
+              rating: book.rating ?? 0,
+              ratingCount: book.ratingCount ?? 0,
             ),
           ],
         ),

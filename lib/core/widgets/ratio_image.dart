@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../utils/constants.dart';
+
 class RatioImage extends StatelessWidget {
   final double? height, width;
   final double aspectRatio;
-  final String imageUrl;
+  final String? imageUrl;
   final EdgeInsets? margin;
 
   const RatioImage({
@@ -27,7 +29,10 @@ class RatioImage extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           image: DecorationImage(
             fit: BoxFit.fill,
-            image: NetworkImage(imageUrl,),
+            image:
+                imageUrl != null && imageUrl!.isNotEmpty
+                    ? NetworkImage(imageUrl!)
+                    : AssetImage(kImgPlaceholder),
           ),
         ),
       ),

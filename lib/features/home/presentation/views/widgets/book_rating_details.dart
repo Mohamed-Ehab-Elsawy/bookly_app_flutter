@@ -3,8 +3,7 @@ import 'package:bookly_app/core/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class BookRatingDetails extends StatelessWidget {
-  final double rating;
-  final int ratingCount;
+  final num rating, ratingCount;
 
   const BookRatingDetails({
     super.key,
