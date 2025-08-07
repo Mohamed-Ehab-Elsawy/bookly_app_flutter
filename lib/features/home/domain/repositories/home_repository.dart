@@ -4,5 +4,5 @@ import 'package:dart_either/dart_either.dart';
 
 abstract class HomeRepository {
   Future<Either<Failure, List<BookEntity>>> fetchAllBooks();
-  Future<Either<Failure, List<BookEntity>>> fetchTrendingBooks();
+  Future<Either<Failure, List<BookEntity>>> fetchNewestBooks();
 }
